@@ -15,11 +15,12 @@ The general form for elements is as follows:
 name (attribute1 val1, attribute2 val2) { children }
 ```
 The element's name must come first. Element names do not have to be unique, as they should describe the type of data they represent rather than be a unique identifier for the data. It is up to you to uniquely identify elements, which most likely will involve using a specific attribute to hold a key.
-Bad:
+
+Don't do this:
 ```
 mainbutton (type "button", text "Click me!")
 ```
-Good:
+Instead, do this:
 ```
 button (id "main-btn", text "Click me!")
 ```
