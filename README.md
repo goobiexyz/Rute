@@ -1,32 +1,47 @@
 # Rute
 
 ## Objective
-Rute is a data-interchange file format that aims to be a concise alternative to XML.
+Rute is a general purpose data-interchange file format that aims to be a concise alternative to XML.
 
 ## Syntax
-Much like XML, a Rute file contains a tree of data. Each element is declared with a name and can include attributes and/or additional child elements.
+The general form for elements:
+```
+name (attributes...) {
+  children...
+}
+```
 
-Unlike XML, elements can only contain other elements. If you wish to include text with an element, it must be included as an attribute. For example,
+Much like XML, a Rute file contains a tree of data. Each element will have a name and may also contain attributes or child elements. While attributes and children are optional, a name is always required. Multiple elements are separated by commas or linebreaks.
+
+Unlike XML, the children of an element can only contain other elements, not text. If you wish to include text in an element, you must do so in an attribute.
+
+Do this:
 ```
-paragraph (text "XML sucks!")
+paragraph (text "Here's some text")
 ```
-The general form for elements is as follows:
-```
-name (attribute1 val1, attribute2 val2) { children }
-```
-The element's name must come first. Element names do not have to be unique, as they should describe the type of data they represent rather than be a unique identifier for the data. It is up to you to uniquely identify elements, which most likely will involve using a specific attribute to hold a key.
 
 Don't do this:
 ```
-mainbutton (type "button", text "Click me!")
+paragraph {Here's some text}
 ```
-Instead, do this:
+
+### Name
+The element's name must come first. Names are case insensitive, can contain only letters, numbers, and underscores, and must start with a letter. They do not have to be unique, as they should describe the type of data they represent rather than be a unique identifier for the data. It is up to you to uniquely identify elements, which most likely will involve using a specific attribute as an ID.
+
+
+Do this:
 ```
-button (id "main-btn", text "Click me!")
+button (id "main-button", text "Click me!")
 ```
-To declare an element, first you must write the name. This name can be non-unique.
-What follows the name must be either the attributes or the children. If neither are present, the element is considered to be invalid.
-Commas and linebreaks can be used interchangeably to separate elements from elements and attributes from attributes.
+
+Don't do this:
+```
+main_button (type "button", text "Click me!")
+```
+
+### Attributes
+The attributes, if you chose not to omit them, will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Multiple attributes are separated by commas or linebreaks.
+
 ## Examples
 ```
 inbox {
