@@ -13,7 +13,7 @@ Commas and linebreaks can be used interchangeably to separate elements from elem
 ```
 # Define an array
 inbox {
-  email [
+  emails [
     (to "Max", from "Gracie", content "Hello brother, how are you?")
     (to "Gracie", from "Max", content "I'm doing quite well, thank you!")
   ]
