@@ -1,21 +1,25 @@
 # Rute
 
-## Objective
-Rute is a general purpose data-interchange file format that aims to be a concise alternative to XML.
+## Objectives
+Rute is a general purpose data-interchange file format that structures information in a relational tree. It aims to be a concise alternative to XML.
 
 ## Syntax
-The general form for elements:
+
+### Tree Structure
+Much like XML, elements in a Rute file exist in a relational tree. Unlike XML, Rute does not require a root element, for the file itself is considered the root.
+
+Child elements are contained in curly brackets that come at the end of an element declaration:
 ```
-name (attributes...) {
-  children...
+book (title "Example") {
+  chapter {
+    page (content "I just think the")
+    page (content "world ought to be")
+    page (content "more sort of organized.")
+  }
 }
 ```
 
-Much like XML, a Rute file contains a tree of data. Each element will have a name and may also contain attributes or child elements. While attributes and children are optional, a name is always required. Multiple elements are separated by commas or linebreaks.
-
-Unlike XML, the children of an element can only contain other elements, not text. If you wish to include text in an element, you must do so in an attribute.
-
-Do this:
+Unlike XML, text cannot be mixed in with child elements, however text can be included as a property:
 ```
 paragraph (text "Here's some text")
 ```
@@ -25,10 +29,18 @@ Don't do this:
 paragraph {Here's some text}
 ```
 
-### Name
-The element's name must come first. Names are case insensitive, can contain only letters, numbers, and underscores, and must start with a letter. They do not have to be unique, as they should describe the type of data they represent rather than be a unique identifier for the data. It is up to you to uniquely identify elements, which most likely will involve using a specific attribute as an ID.
+### Elements
+The general form for elements:
+```
+name (properties...) {
+  children...
+}
+```
 
-Do this:
+Each element has a name and may also contain properties and child elements. While properties and children are optional, a name is always required. Multiple elements are separated by linebreaks, but commas may be used if you wish to condense multiple elements on a single line.
+
+#### Naming
+The element's name must come first. Names should be semantic, meaning they describe the type of data they contain, and as such they don't need to be unique. It is up to you to uniquely identify elements, such as using a specific property as an ID:
 ```
 button (id "main-button", text "Click me!")
 ```
@@ -38,12 +50,22 @@ Don't do this:
 main_button (type "button", text "Click me!")
 ```
 
-### Attributes
-If you chose not to omit them, the attributes will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Attribute names follow the same conventions as element names. Multiple attributes are separated by commas or linebreaks. Values can be either strings, numbers, or booleans.
+Names are case sensitive, must begin with a letter, and can contain only letters, numbers, and underscores.
 
-Acceptable values:
+#### Properties
+If you chose not to omit them, the attributes will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Attribute names follow the same conventions as element names. Multiple attributes are separated by commas or linebreaks. Values can be either strings, numbers, or booleans:
 ```
 element (id "example", score 94.5, win true)
+```
+
+Double quotation marks signify the start and end of strings, so if you wish to use those characters in a string without breaking the flow, you can precede them with a backslash `\`:
+```
+paragraph (text "\"You're hearing things,\" said the voice in Rincewind's head.")
+```
+
+If you need to use backslashes in a string, a double backslash may be used instead:
+```
+image (path "C:\\Pictures\\bunny.png")
 ```
 
 ## Examples
