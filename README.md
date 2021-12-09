@@ -53,9 +53,16 @@ main_button (type "button", text "Click me!")
 Names are case sensitive, must begin with a letter, and can contain only letters, numbers, and underscores.
 
 #### Properties
-If you chose not to omit them, the attributes will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Attribute names follow the same conventions as element names. Multiple attributes are separated by commas or linebreaks. Values can be either strings, numbers, or booleans:
+If you chose not to omit them, the attributes will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Attribute names follow the same conventions as element names. Values can be either strings, numbers, or booleans:
 ```
 element (id "example", score 94.5, win true)
+```
+
+Multiple properties are separated by commas, but linebreaks may be used instead if there is a need:
+```
+article (date "5-01-2021", author "Gracie"
+  summary "A really long string of text should have its own line."
+)
 ```
 
 Double quotation marks signify the start and end of strings, so if you wish to use those characters in a string without breaking the flow, you can precede them with a backslash `\`:
@@ -71,7 +78,7 @@ image (path "C:\\Pictures\\bunny.png")
 ## Examples
 ```
 inbox {
-  email (to "Max", from "Gracie", content "Hello brother, how are you?")
-  email (to "Gracie", from "Max", content "I'm doing quite well, thank you!")
+  email (to "Max",    from "Gracie", content "Hello brother, how are you?")
+  email (to "Gracie", from "Max",    content "I'm doing quite well, thank you!")
 }
 ```
