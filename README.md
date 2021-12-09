@@ -28,7 +28,6 @@ paragraph {Here's some text}
 ### Name
 The element's name must come first. Names are case insensitive, can contain only letters, numbers, and underscores, and must start with a letter. They do not have to be unique, as they should describe the type of data they represent rather than be a unique identifier for the data. It is up to you to uniquely identify elements, which most likely will involve using a specific attribute as an ID.
 
-
 Do this:
 ```
 button (id "main-button", text "Click me!")
@@ -40,7 +39,12 @@ main_button (type "button", text "Click me!")
 ```
 
 ### Attributes
-The attributes, if you chose not to omit them, will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Multiple attributes are separated by commas or linebreaks.
+If you chose not to omit them, the attributes will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Attribute names follow the same conventions as element names. Multiple attributes are separated by commas or linebreaks. Values can be either strings, numbers, or booleans.
+
+Acceptable values:
+```
+element (id "example", score 94.5, win true)
+```
 
 ## Examples
 ```
