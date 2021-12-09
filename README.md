@@ -75,7 +75,7 @@ If you need to use backslashes in a string, a double backslash may be used inste
 image (path "C:\\Pictures\\bunny.png")
 ```
 
-How to handle text formatting should be left to the programmer.
+It should be noted that Rute does not specify how to handle text formatting.
 
 ## Examples
 ```
