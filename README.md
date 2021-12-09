@@ -7,11 +7,6 @@ Rute is a data-interchange file format that aims to be a concise alternative to 
 Much like XML, a Rute file contains a tree of data. Each element is declared with a name and can include attributes and/or additional child elements.
 
 Unlike XML, elements can only contain other elements. If you wish to include text with an element, it must be included as an attribute. For example,
-### XML:
-```
-<paragraph>XML sucks!</paragraph>
-```
-### Rute:
 ```
 paragraph (text "XML sucks!")
 ```
