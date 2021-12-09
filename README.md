@@ -11,11 +11,8 @@ What follows the name must be either the attributes or the children. If neither 
 Commas and linebreaks can be used interchangeably to separate elements from elements and attributes from attributes.
 ## Examples
 ```
-# Define an array
 inbox {
-  emails [
-    (to "Max", from "Gracie", content "Hello brother, how are you?")
-    (to "Gracie", from "Max", content "I'm doing quite well, thank you!")
-  ]
+  email (to "Max", from "Gracie", content "Hello brother, how are you?")
+  email (to "Gracie", from "Max", content "I'm doing quite well, thank you!")
 }
 ```
