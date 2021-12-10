@@ -67,7 +67,7 @@ article (date "5-01-2021", author "Gracie"
 ##### Strings
 Enclose text in double quotation marks to mark it as a string.
 
-Line-breaks in strings should be ignored, so represent them with `\n`.
+Line-breaks in strings are ignored, so represent them with `\n`.
 
 If you wish to use quotation marks or backslashes in a string as normal characters, you can precede them with a backslash `\`:
 ```
