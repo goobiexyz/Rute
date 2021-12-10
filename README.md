@@ -58,24 +58,22 @@ If you chose not to omit them, the attributes will come right after the name, en
 element (id "example", score 94.5, win true)
 ```
 
-Multiple properties are separated by commas, but linebreaks may be used instead if there is a need:
+Multiple properties are separated by commas, but line-breaks may be used instead if there is a need:
 ```
 article (date "5-01-2021", author "Gracie"
   summary "A really long string of text should have its own line."
 )
 ```
+##### Strings
+Enclose text in double quotation marks to mark it as a string.
 
-Double quotation marks signify the start and end of strings, so if you wish to use those characters in a string without breaking the flow, you can precede them with a backslash `\`:
+Line-breaks in strings should be ignored, so represent them with `\n`.
+
+If you wish to use quotation marks or backslashes in a string as normal characters, you can precede them with a backslash `\`:
 ```
 paragraph (text "\"You're hearing things,\" said the voice in Rincewind's head.")
-```
-
-If you need to use backslashes in a string, a double backslash may be used instead:
-```
 image (path "C:\\Pictures\\bunny.png")
 ```
-
-It should be noted that Rute does not specify how to handle text formatting.
 
 ## Examples
 ```
