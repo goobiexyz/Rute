@@ -115,5 +115,5 @@ menu (id "main-menu") {
 }
 ```
 
-## Help Wanted
+## How to Help
 I'm currently making a Rute parser in Go because that's what I need it for right now, but please feel free to help bring Rute to more people by writing your own parsers in other languages! And please let me know if you do, I'd love to hear about it!
