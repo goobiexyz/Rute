@@ -4,7 +4,7 @@
 ## Objectives
 Rute is a general purpose data-interchange file format that structures information in a relational tree. It aims to be a concise alternative to XML.
 
-## To Do
+### To Do
 - Currently finishing up writing a parser for Go
 
 ## Syntax
