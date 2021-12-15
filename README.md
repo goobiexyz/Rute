@@ -37,23 +37,24 @@ name (properties...) {
 }
 ```
 
-Each element has a name and may also contain properties and child elements. While properties and children are optional, a name is always required. Multiple elements are separated by linebreaks, but commas may be used if you wish to condense multiple elements on a single line.
+Each element has a name and may also contain properties and child elements. While properties and children are optional, a name is always required.
+
+Rute can also be minified, since whitespace doesn't matter except for seperating properties from values. Commas can be used to separate elements on the same line that **don't** have child contexts:
+```
+item,item(id "example"),item{item}item
+```
+Otherwise, use linebreaks to seperate elements.
 
 #### Naming
-The element's name must come first. Names should be semantic, meaning they describe the type of data they contain, and as such they don't need to be unique. It is up to you to uniquely identify elements, such as using a specific property as an ID:
+The element's name must come first. Names should be semantic, meaning they describe the type of data they contain, and as such they don't need to be unique. It is up to the programmer to uniquely identify elements, such as using a specific property as an ID, for example:
 ```
-button (id "main-button", text "Click me!")
-```
-
-Don't do this:
-```
-main_button (type "button", text "Click me!")
+button (id "submit", text "Click me!")
 ```
 
 Names are case sensitive, must begin with a letter, and can contain only letters, numbers, and underscores.
 
 #### Properties
-If you chose not to omit them, the attributes will come right after the name, enclosed in parenthesis. To define an attribute, you must give its name followed by its value, separated by whitespace. Attribute names follow the same conventions as element names. Values can be either strings, numbers, or booleans:
+If you chose not to omit them, the properties will come right after the name, enclosed in parenthesis. To define an property, you must give its name followed by its value, separated by whitespace. Property names follow the same conventions as element names. Values can be either strings, numbers, or booleans:
 ```
 element (id "example", score 94.5, win true)
 ```
@@ -76,9 +77,39 @@ image (path "C:\\Pictures\\bunny.png")
 ```
 
 ## Examples
+
+Simple email inbox:
 ```
 inbox {
   email (to "Max",    from "Gracie", content "Hello brother, how are you?")
   email (to "Gracie", from "Max",    content "I'm doing quite well, thank you!")
+}
+```
+
+Gui layout:
+```
+menu (id "main-menu") {
+  grid (rows 2, cols 2) {
+    button (
+      text "Start"
+      ref "load-game"
+      color "red"
+    )
+    button (
+      text "Level Select"
+      ref "level-select"
+      color "blue"
+    )
+    button (
+      text "Settings"
+      ref "settings"
+      color "green"
+    )
+    button (
+      text "Quit"
+      ref "quit"
+      color "razzmatazz"
+    )
+  }
 }
 ```
