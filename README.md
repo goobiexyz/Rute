@@ -1,7 +1,6 @@
 ![Rute](logo.png)
 ====
 
-## Objectives
 Rute is a general purpose data-interchange file format that structures information in a relational tree. It aims to be a concise alternative to XML.
 
 ## Syntax
