@@ -5,6 +5,39 @@ Rute is a general purpose data-interchange file format that structures informati
 
 ## Syntax
 
+### Comparison to XML
+
+#### XML
+```
+<blog title="My Blog" link="https://example.com">
+  <post id="1" date="10-19-2021" title="Example" read="false">
+    XML has so many unnecessary characters
+  </post>
+  <post id="0" date="10-19-2021" title="Example" read="true">
+    Closing tags look cluttered
+  </post>
+</blog>
+```
+#### Rute
+```
+blog (title "My Blog", link "https://example.com) {
+  post (
+    id    1
+    date  "10-19-2021"
+    title "Example"
+    read  false
+    body  "Rute is much less tedious"
+  )
+  post (
+    id    0
+    date  "10-19-2021"
+    title "Example"
+    read  true
+    body  "It's easier to read too"
+  )
+}
+```
+
 ### Tree Structure
 Much like XML, elements in a Rute file exist in a relational tree. Unlike XML, Rute does not require a root element, for the file itself is considered the root.
 
@@ -76,7 +109,18 @@ paragraph (text "\"You're hearing things,\" said the voice in Rincewind's head."
 image (path "C:\\Pictures\\bunny.png")
 ```
 
-## Examples
+### Comments
+Annotate your code with comments by prefixing them with `#`, and any text that follows will be ignored until a newline is reached:
+```
+# This is a comment
+```
+
+The `#` should be treated as a regular character if inside a string:
+```
+element (property "# This will not be ignored")
+```
+
+## More Examples
 
 Simple email inbox:
 ```
